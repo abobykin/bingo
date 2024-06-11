@@ -7,6 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Sigmar&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/reset.css" />
     <link rel="stylesheet" href="/css/style.css" />
   </head>
@@ -35,12 +36,16 @@
                 <div class="select__subinner">
                 <label class="bingo-form__label" for="">Grid layout</label>
                 <div class="select__wrapper">
-                <select class="bingo-form__select" name="" id="">
-                  
-                  <option value="">auto</option>
-                  <option value="">5x5</option>
-                  <option value="">3x3</option>
-                </select>
+                  <div class="form-group">                    
+                      <button type="button" class="dropup__button">Auto</button>
+                      <ul class="dropup__list ">
+                        <li class="dropup__list-item" data-value="auto">Auto</li>
+                        <li class="dropup__list-item" data-value="five">5x5</li>
+                        <li class="dropup__list-item" data-value="three">3x3</li>
+                    </ul>
+                    <input type="text" name="select-category" value="" class="dropup__input-hiden">
+                    
+                  </div>
               </div>
                 </div>
                 
@@ -59,7 +64,7 @@
               </fieldset>
 
               <div class="button__inner">
-              <button class="bingo-form__button bingo-form__inactive">Generate         
+              <button class="bingo-form__button bingo-form__active">Generate         
               </button>
               <button class="bingo-form__button bingo-form__disabled">Start         
               </button>
@@ -70,10 +75,94 @@
             
           </div>
           <div class="card card-game">
+          <div class="column-game__title-wrapper">
             <h6 class="column-game__title">MINE BINGO</h6>
+          </div>
+            
+            <div class="card__inner">
+                <div class="card__item">
+                  <img class="card__item-img" src="/images/card-img.png" alt="">
+                </div>
+                <div class="card__item">
+                  <img class="card__item-img" src="/images/card-img.png" alt="">
+                </div>
+                <div class="card__item">
+                  <img class="card__item-img" src="/images/card-img.png" alt="">
+                </div>
+                <div class="card__item">
+                  <img class="card__item-img" src="/images/card-img.png" alt="">
+                </div>
+                <div class="card__item">
+                  <img class="card__item-img" src="/images/card-img.png" alt="">
+                </div>    
+
+                <div class="card__item">
+                  <img class="card__item-img" src="/images/card-img.png" alt="">
+                </div>
+                <div class="card__item">
+                  <img class="card__item-img" src="/images/card-img.png" alt="">
+                </div>
+                <div class="card__item">
+                  <img class="card__item-img" src="/images/card-img.png" alt="">
+                </div>
+                <div class="card__item">
+                  <img class="card__item-img" src="/images/card-img.png" alt="">
+                </div>
+                <div class="card__item">
+                  <img class="card__item-img" src="/images/card-img.png" alt="">
+                </div>                  <div class="card__item">
+                  <img class="card__item-img" src="/images/card-img.png" alt="">
+                </div>
+                <div class="card__item">
+                  <img class="card__item-img" src="/images/card-img.png" alt="">
+                </div>
+                <div class="card__item">
+                  <img class="card__item-img" src="/images/card-img.png" alt="">
+                </div>
+                <div class="card__item">
+                  <img class="card__item-img" src="/images/card-img.png" alt="">
+                </div>
+                <div class="card__item">
+                  <img class="card__item-img" src="/images/card-img.png" alt="">
+                </div>                  <div class="card__item">
+                  <img class="card__item-img" src="/images/card-img.png" alt="">
+                </div>
+                <div class="card__item">
+                  <img class="card__item-img" src="/images/card-img.png" alt="">
+                </div>
+                <div class="card__item">
+                  <img class="card__item-img" src="/images/card-img.png" alt="">
+                </div>
+                <div class="card__item">
+                  <img class="card__item-img" src="/images/card-img.png" alt="">
+                </div>
+                <div class="card__item">
+                  <img class="card__item-img" src="/images/card-img.png" alt="">
+                </div>                  <div class="card__item">
+                  <img class="card__item-img" src="/images/card-img.png" alt="">
+                </div>
+                <div class="card__item">
+                  <img class="card__item-img" src="/images/card-img.png" alt="">
+                </div>
+                <div class="card__item">
+                  <img class="card__item-img" src="/images/card-img.png" alt="">
+                </div>
+                <div class="card__item">
+                  <img class="card__item-img" src="/images/card-img.png" alt="">
+                </div>
+                <div class="card__item">
+                  <img class="card__item-img" src="/images/card-img.png" alt="">
+                </div>  
+                            
+              
+
+            </div>
+
           </div>
         </div>
       </div>
     </main>
+
+    <script src="/main.js"></script>
   </body>
 </html>
