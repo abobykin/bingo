@@ -22,7 +22,7 @@
                 Generate your bingo card. Complete all tasks in 10 minutes.
               </p>
 
-              <fieldset action="">
+              <fieldset class="bingo-form__fieldset" action="">
 
                 <label class="bingo-form__label">Title</label>
                 <input class="bingo-form__input" type="text" id="" value="Mine bingo"></input>
@@ -39,9 +39,9 @@
                   <div class="form-group">                    
                       <button type="button" class="dropup__button">Auto</button>
                       <ul class="dropup__list ">
-                        <li class="dropup__list-item" data-value="auto">Auto</li>
-                        <li class="dropup__list-item" data-value="five">5x5</li>
-                        <li class="dropup__list-item" data-value="three">3x3</li>
+                        <li class="dropup__list-item auto" data-value="auto">Auto</li>
+                        <li class="dropup__list-item five" data-value="five">5x5</li>
+                        <li class="dropup__list-item three" data-value="three">3x3</li>
                     </ul>
                     <input type="text" name="select-category" value="" class="dropup__input-hiden">
                     
@@ -52,11 +52,16 @@
                 <div class="select__subinner">
                 <label class="bingo-form__label" for="">Cell size</label>
                 <div class="select__wrapper">
-                <select class="bingo-form__select" name="" id="">
-                  <option value="">Square</option>
-                  <option value="">Full Screen</option>
-
-                </select>
+                  <div class="form-group">                    
+                    <button type="button" class="dropup__button1">square</button>
+                    <ul class="dropup__list1 ">
+                      <li class="dropup__list-item1" data-value="square">square</li>
+                      <li class="dropup__list-item1" data-value="full screen">full screen</li>
+                      
+                  </ul>
+                  <input type="text" name="select-category" value="" class="dropup__input-hiden">
+                  
+                </div>
               </div>
                 </div>
               </div>
@@ -74,14 +79,16 @@
             </form>
             
           </div>
-          <div class="card card-game">
+          <!-- card-game-full -->
+          <div class="card card-game ">
           <div class="column-game__title-wrapper">
             <h6 class="column-game__title">MINE BINGO</h6>
           </div>
-            
-            <div class="card__inner">
-                <div class="card__item">
-                  <img class="card__item-img" src="/images/card-img.png" alt="">
+          <!-- card__inner card__inner--three-->
+            <div class="card__inner card__inner--three">
+                <div class="card__item card__item--active ">
+                  <img class="card__item-img card__item-img--active" src="/images/card-img.png" alt="">
+                  <p class="card__item-text">Vacuum first floor</p>
                 </div>
                 <div class="card__item">
                   <img class="card__item-img" src="/images/card-img.png" alt="">
@@ -159,6 +166,11 @@
             </div>
 
           </div>
+
+
+
+
+
         </div>
       </div>
     </main>
