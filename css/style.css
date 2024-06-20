@@ -44,6 +44,9 @@ button {
 }
 
 .card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   max-width: 419px;
   padding: 20px;
   border-radius: 12px;
@@ -64,7 +67,7 @@ button {
 .form-card--hiden {
   display: none;
 }
-
+ 
 
 .bingo-form__title {
   color: #4c2e61;
@@ -186,6 +189,8 @@ button {
   font-weight: 700;
   line-height: 20px;
 }
+
+
 .bingo-form__active {
   color: var(--Label-secondary, #5f3a79);
   border-radius: 12px;
@@ -390,13 +395,14 @@ button {
   gap: 10px;
 }
 .card__item {
+  transition: all .4s;
   text-align: center;
   display: flex;
   align-items: center;
   justify-content: center;
   width: 100%;
   aspect-ratio: 1;
-  
+  opacity: 0,2;  
   border-radius: 8px;
   border: 0.7px solid rgba(255, 255, 255, 0.5);
   background: linear-gradient(
@@ -414,12 +420,17 @@ button {
   font-weight: 500;
   line-height: 16px;
   text-transform: uppercase;
-  padding: 4px;
   width: 50px;
 }
 .card__item--active {
-  background: var(--white, #FFF);
-  
+  background: var(--white, #FFF);  
+  opacity: 1;
+}
+
+
+.card__item--active img {
+  display: none;
+
 }
 .card__item-img--active {
   display: none;
@@ -442,6 +453,30 @@ button {
 
 .card-game-full .card__inner .card__item {
   width: 100%;
+  aspect-ratio: 0;
+  height: 71px;
+}
+
+.bingo-startin {
+  display: none;
+  text-align: center;
+  
+}
+.bingo-startin--active {
+  display: flex;
+  flex-direction: column;
+}
+.bingo-startin__text {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 26px;
+  
+}
+.bingo-startin__number {
+  font-size: 32px;
+  font-weight: 700;
+  line-height: normal;  
+  
 }
 
 .start-timer {
@@ -450,23 +485,41 @@ button {
  justify-content: center;
  flex-direction: column;
  align-items: center;
- 
 
+}
+.start-timer--active {
+  display: flex;
 }
 .start-timer__text {
 font-size: 18px;
 font-weight: 700;
 line-height: 26px; 
-
-
 }
 .start-timer__number {
 font-size: 32px;
 font-style: normal;
 font-weight: 700;
 line-height: normal;
-padding-top: 100px;
 }
+.start-timer__wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 192px;
+  margin-bottom: 15px;
+}
+.start-timer__pause {
+  cursor: pointer;
+}
+.start-timer__reset {
+  padding: 14px 0;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  color: var(--Label-secondary, #5F3A79);
+  cursor: pointer;
+}
+
 
 .start-timer__elipse {
 font-size: 18px;
@@ -585,6 +638,13 @@ margin-bottom: 73px;
   .bingo-form__fieldset {
     display: none;
   }
+  .bingo-startin__text {
+    order: 2;
+  }
+  .bingo-startin__number {
+    order: 1;
+  }
+
 
 
 

@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Bingo</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
@@ -70,28 +70,47 @@
               </fieldset>
 
               <div class="buttons__wrapper">
-              <button class="bingo-form__button bingo-form__active">Generate         
+              <button class="bingo-form__button bingo-form__active bingo-form__generate" type="button">Generate         
               </button>
-              <button class="bingo-form__button bingo-form__disabled">Start         
+              <button class="bingo-form__button bingo-form__disabled bingo-form__start" type="button">Start         
               </button>
               </div>
 
 
             </form>
 
+            <!-- bingo-startin--active -->
+            <div class="bingo-startin ">
+              <p class="bingo-startin__text">BINGO STARTS IN</p>
+              <p class="bingo-startin__number" id="startin"></p>
+
+
+            </div>
+
+
+
             
 
-
+            <!-- start-timer--active -->
             <div class="start-timer">       
                     
               <p class="start-timer__number" id="countdown"></p>
-              <img class="start-timer__elipse" src="/images/elipse-time.svg" alt="">
+              <div class="start-timer__wrapper">
+                <button class="start-timer__pause" type="button">
+                  <img class="start-timer__img" src="/images/pause.svg" alt="">
+
+                </button>  
+
+                <button class="start-timer__reset" type="button">Reset</button>
+
+                
+              </div>
               <p class="start-timer__text">Click on finished items 
                 and move to the next.</p>
             </div>
 
             <!-- succes--active -->
-            <div class="succes ">
+            <div class="succes  ">
               <img class="succes__img" src="/images/success.svg" alt="">
               <h6 class="succes__title">Congratulations!</h6>
               <p class="succes__text">You're a real hero! <br> 
@@ -115,7 +134,7 @@
           </div>
           <!-- card__inner card__inner--three-->
             <div class="card__inner ">
-                <div class="card__item card__item--active ">
+                <div class="card__item card__item--active  ">
                   <img class="card__item-img card__item-img--active" src="/images/card-img.png" alt="">
                   <p class="card__item-text">Vacuum first floor</p>
                 </div>
