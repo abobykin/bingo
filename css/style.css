@@ -626,6 +626,16 @@ margin-bottom: 73px;
 
 }
 
+.col {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0.5em;
+  height: 100%;
+  width: 100%;
+}
+
 .timer-container {
   position: relative;
   display: flex;

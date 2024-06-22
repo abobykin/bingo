@@ -80,21 +80,23 @@ cellCizeButton.addEventListener('click', function () {
 
 const startIn = document.getElementById('startin')
 let timeIn = 3
+const startTimer = document.querySelector('.start-timer')
+const bingoStartIn = document.querySelector('.bingo-startin')
+
 
 function timeInCount() {
   startIn.innerText = timeIn
 
   if (timeIn != 0) {
-    timeIn--
-  } else {
-    const startTimer = document.querySelector('.start-timer')
-    startTimer.classList.add('start-timer--active')
-    const bingoStartIn = document.querySelector('.bingo-startin')
+    timeIn --
+  } else {    
+    startTimer.classList.add('start-timer--active')    
     bingoStartIn.classList.remove('bingo-startin--active')
   }
 }
-// play function
-// setInterval(timeInCount, 1000);
+
+
+
 
 const coundDownEl = document.getElementById('countdown')
 let coundDownTimer = 600
@@ -182,6 +184,7 @@ const timerContainer = document.createElement('div')
 timerContainer.className = 'col'
 timerContainer.appendChild(circleTimerContainer)
 timerContainer.appendChild(timerButtonsContainer)
+// startTimer.appendChild(timerContainer) crashing here
 
 const chores = [
   'Do the laundry',
@@ -224,3 +227,14 @@ buttonGenerate.addEventListener('click', function () {
     }, index * 350)
   })
 })
+
+const form = document.querySelector('.form-card')
+
+buttonStart.addEventListener('click', ()=> { 
+
+  bingoStartIn.classList.add('bingo-startin--active')
+  form.classList.add('form-card--hiden')
+  setInterval(timeInCount, 1000)
+
+
+});
