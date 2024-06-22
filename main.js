@@ -79,18 +79,17 @@ function timeInCount() {
 // setInterval(timeInCount, 1000);
 
 const coundDownEl = document.getElementById('countdown')
-let coundDowntimer = 600
+let coundDownTimer = 600
 
 setInterval(updateCountdown, 1000)
 
 function updateCountdown() {
-  const minutes = Math.floor(timer / 60)
-  let seconds = timer % 60
+  const minutes = Math.floor(coundDownTimer / 60)
+  let seconds = coundDownTimer % 60
   seconds = seconds < 10 ? '0' + seconds : seconds
   coundDownEl.innerHTML = `${minutes}: ${seconds} `
-  timer--
+  coundDownTimer--
 }
-
 
 const circleTimerContainer = document.createElement('div')
 circleTimerContainer.className = 'timer-container'
