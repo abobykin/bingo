@@ -79,7 +79,7 @@ function timeInCount() {
 // setInterval(timeInCount, 1000);
 
 const coundDownEl = document.getElementById('countdown')
-let timer = 600
+let coundDowntimer = 600
 
 setInterval(updateCountdown, 1000)
 
