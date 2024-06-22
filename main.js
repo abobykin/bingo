@@ -3,6 +3,7 @@ const gridLayoutButton = document.querySelector('.grid-layout__button')
 const gridLayoutList = document.querySelector('.grid-layout__list')
 const gridLayoutItem = document.querySelectorAll('.grid-layout__item')
 const cardInner = document.querySelector('.card__inner')
+const cards = document.querySelectorAll('.card__item')
 
 gridLayoutItem.forEach((item) => {
   item.addEventListener('click', () => {
