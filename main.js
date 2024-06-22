@@ -1,3 +1,21 @@
+window.mobileCheck = function () {
+  const width = window.innerWidth > 0 ? window.innerWidth : screen.width
+  return width <= 768
+}
+
+const SPINNER_URL =
+  'https://storage.googleapis.com/msgsndr/gIjYUjNX6k7qAMEqJDLW/media/6634b16ab2e176fa374b345f.gif'
+const LOGO_URL =
+  'https://storage.googleapis.com/msgsndr/gIjYUjNX6k7qAMEqJDLW/media/66314adca18c967536ab89bb.png'
+const SUCCESS_URL =
+  'https://storage.googleapis.com/msgsndr/gIjYUjNX6k7qAMEqJDLW/media/66314add21205c1ab4eab467.png'
+const FAILURE_URL =
+  'https://storage.googleapis.com/msgsndr/gIjYUjNX6k7qAMEqJDLW/media/66314adc7e32e21be8385ba0.png'
+const PAUSE_URL =
+  'https://storage.googleapis.com/msgsndr/gIjYUjNX6k7qAMEqJDLW/media/66369d5cb2e17684924dd8ea.svg'
+const PLAY_URL =
+  'https://storage.googleapis.com/msgsndr/gIjYUjNX6k7qAMEqJDLW/media/66369d5c72ff29f77fea4b2d.svg'
+
 // switch gridlayout to 3x3
 const gridLayoutButton = document.querySelector('.grid-layout__button')
 const gridLayoutList = document.querySelector('.grid-layout__list')
@@ -200,7 +218,6 @@ buttonGenerate.addEventListener('click', function () {
       if (!randomCard.classList.contains('card__item--active')) {
         randomCard.classList.add('card__item--active')
         randomCard.appendChild(para)
-        console.log(chore)
       } else {
         return
       }
