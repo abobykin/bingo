@@ -83,20 +83,16 @@ let timeIn = 3
 const startTimer = document.querySelector('.start-timer')
 const bingoStartIn = document.querySelector('.bingo-startin')
 
-
 function timeInCount() {
   startIn.innerText = timeIn
 
   if (timeIn != 0) {
-    timeIn --
-  } else {    
-    startTimer.classList.add('start-timer--active')    
+    timeIn--
+  } else {
+    startTimer.classList.add('start-timer--active')
     bingoStartIn.classList.remove('bingo-startin--active')
   }
 }
-
-
-
 
 const coundDownEl = document.getElementById('countdown')
 let coundDownTimer = 600
@@ -136,54 +132,57 @@ timer.innerText = `${minutes.toString().padStart(2, '0')}:${seconds
 circleTimerContainer.appendChild(circleContainer)
 circleTimerContainer.appendChild(timer)
 
-const gameTip = document.createElement('span')
-gameTip.className = 'tip'
-gameTip.innerText = 'Click on finished items and move to the next'
+startTimer.appendChild(circleTimerContainer)
 
-const timerButtonsContainer = document.createElement('div')
-timerButtonsContainer.className = 'timer-buttons-container'
-const pauseButton = document.createElement('button')
-pauseButton.className = 'pause-button'
-const pauseImg = document.createElement('img')
-pauseImg.src = PAUSE_URL
-pauseImg.alt = 'pause'
-const playImg = document.createElement('img')
-playImg.src = PLAY_URL
-playImg.alt = 'play'
+// const gameTip = document.createElement('span')
+// gameTip.className = 'tip'
+// gameTip.innerText = 'Click on finished items and move to the next'
 
-pauseButton.appendChild(pauseImg)
-pauseButton.addEventListener('click', (e) => {
-  e.preventDefault()
-  pauseButton.innerHTML = ''
-  pauseButton.appendChild(paused ? pauseImg : playImg)
-  paused = !paused
-})
+// const timerButtonsContainer = document.createElement('div')
+// timerButtonsContainer.className = 'timer-buttons-container'
+// const pauseButton = document.createElement('button')
+// pauseButton.className = 'pause-button'
+// const pauseImg = document.createElement('img')
+// pauseImg.src = PAUSE_URL
+// pauseImg.alt = 'pause'
+// const playImg = document.createElement('img')
+// playImg.src = PLAY_URL
+// playImg.alt = 'play'
 
-const resetButton = document.createElement('button')
-resetButton.className = 'reset-button'
-resetButton.innerText = 'Reset'
-resetButton.addEventListener('click', (e) => {
-  e.preventDefault()
-  minutes = 10
-  seconds = 1
-  pauseButton.innerHTML = ''
-  pauseButton.appendChild(pauseImg)
-  paused = false
+// pauseButton.appendChild(pauseImg)
+// pauseButton.addEventListener('click', (e) => {
+//   e.preventDefault()
+//   pauseButton.innerHTML = ''
+//   pauseButton.appendChild(paused ? pauseImg : playImg)
+//   paused = !paused
+// })
 
-  Array.from(document.getElementsByClassName('marked')).forEach((el) =>
-    el.classList.remove('marked')
-  )
-})
-timerButtonsContainer.appendChild(pauseButton)
-if (window.mobileCheck()) {
-  timerButtonsContainer.appendChild(timer)
-}
-timerButtonsContainer.appendChild(resetButton)
+// const resetButton = document.createElement('button')
+// resetButton.className = 'reset-button'
+// resetButton.innerText = 'Reset'
+// resetButton.addEventListener('click', (e) => {
+//   e.preventDefault()
+//   minutes = 10
+//   seconds = 1
+//   pauseButton.innerHTML = ''
+//   pauseButton.appendChild(pauseImg)
+//   paused = false
 
-const timerContainer = document.createElement('div')
-timerContainer.className = 'col'
-timerContainer.appendChild(circleTimerContainer)
-timerContainer.appendChild(timerButtonsContainer)
+//   Array.from(document.getElementsByClassName('marked')).forEach((el) =>
+//     el.classList.remove('marked')
+//   )
+// })
+// timerButtonsContainer.appendChild(pauseButton)
+// if (window.mobileCheck()) {
+//   timerButtonsContainer.appendChild(timer)
+// }
+// timerButtonsContainer.appendChild(resetButton)
+
+// const timerContainer = document.createElement('div')
+// timerContainer.className = 'col'
+// timerContainer.appendChild(circleTimerContainer)
+// timerContainer.appendChild(timerButtonsContainer)
+
 // startTimer.appendChild(timerContainer) crashing here
 
 const chores = [
@@ -230,11 +229,8 @@ buttonGenerate.addEventListener('click', function () {
 
 const form = document.querySelector('.form-card')
 
-buttonStart.addEventListener('click', ()=> { 
-
+buttonStart.addEventListener('click', () => {
   bingoStartIn.classList.add('bingo-startin--active')
   form.classList.add('form-card--hiden')
   setInterval(timeInCount, 1000)
-
-
-});
+})
