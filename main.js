@@ -3,10 +3,10 @@ const gridLayoutButton = document.querySelector('.grid-layout__button')
 const gridLayoutList = document.querySelector('.grid-layout__list')
 const gridLayoutItem = document.querySelectorAll('.grid-layout__item')
 const cardInner = document.querySelector('.card__inner')
-const cards = document.querySelectorAll('.card__item')
 
 gridLayoutItem.forEach((item) => {
   item.addEventListener('click', () => {
+    const cards = document.querySelectorAll('.card__item')
     gridLayoutButton.innerHTML = item.innerText
     gridLayoutList.classList.toggle('dropup__list--visible')
     if (item.innerText === '3x3') {
@@ -17,15 +17,17 @@ gridLayoutItem.forEach((item) => {
         }
       })
     } else {
-      cardInner.classList.remove('card__inner--three')
-      for (let i = 0; i < 16; i++) {
-        const cardItem = document.createElement('div')
-        cardItem.className = 'card__item'
-        const cardImg = document.createElement('img')
-        cardImg.className = 'card__item-img'
-        cardImg.src = '/images/card-img.png'
-        cardItem.appendChild(cardImg)
-        cardInner.appendChild(cardItem)
+      if (cards.length === 9) {
+        cardInner.classList.remove('card__inner--three')
+        for (let i = 0; i < 16; i++) {
+          const cardItem = document.createElement('div')
+          cardItem.className = 'card__item'
+          const cardImg = document.createElement('img')
+          cardImg.className = 'card__item-img'
+          cardImg.src = '/images/card-img.png'
+          cardItem.appendChild(cardImg)
+          cardInner.appendChild(cardItem)
+        }
       }
     }
   })
