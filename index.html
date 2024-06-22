@@ -25,17 +25,17 @@
 
               <fieldset class="bingo-form__fieldset" action="">
 
-                <label class="bingo-form__label">Title</label>
-                <input class="bingo-form__input" type="text" id="" value="Mine bingo"></input>
+                <label for="title" class="bingo-form__label">Title</label>
+                <input class="bingo-form__input" type="text" id="title" value="Mine bingo"></input>
 
-                <label class="bingo-form__label">Task list</label>
-                <textarea class="bingo-form__textarea" name="" id="" placeholder="Type your task list here or leave empty for autogeneration"></textarea>
+                <label for="task" class="bingo-form__label">Task list</label>
+                <textarea class="bingo-form__textarea" name="" id="task" placeholder="Type your task list here or leave empty for autogeneration"></textarea>
 
                 
               
               <div class="select__inner">
                 <div class="select__subinner">
-                <label class="bingo-form__label" for="">Grid layout</label>
+                <label class="bingo-form__label" for="layout">Grid layout</label>
                   <div class="select__wrapper">
                     <div class="form-group">                    
                       <button type="button" class="grid-layout__button ">Auto</button>
@@ -44,14 +44,14 @@
                         <li class="grid-layout__item five" data-value="five">5x5</li>
                         <li class="grid-layout__item three" data-value="three">3x3</li>
                       </ul>
-                      <input type="text" name="select-category" value="" class="dropup__input-hiden">
+                      <input id="layout" type="text" name="select-category" value="" class="dropup__input-hiden">
                     
                     </div>
                   </div>
                 </div>
                 
                 <div class="select__subinner">
-                <label class="bingo-form__label" for="">Cell size</label>
+                <label class="bingo-form__label" for="cell">Cell size</label>
                 <div class="select__wrapper">
                   <div class="form-group">                    
                     <button type="button" class="cell-size__button  ">square</button>
@@ -60,7 +60,7 @@
                       <li class="cell-size__item" data-value="full screen">full screen</li>
                       
                   </ul>
-                  <input type="text" name="select-category" value="" class="dropup__input-hiden">
+                  <input id="cell" type="text" name="select-category" value="" class="dropup__input-hiden">
                   
                 </div>
               </div>

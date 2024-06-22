@@ -25,9 +25,11 @@ gridLayoutItem.forEach((item) => {
       cardImg.className = 'card__item-img';
       cardImg.src = '/images/card-img.png';
       cardItem.appendChild(cardImg);
-      for (let i = 0; i < 17; i++) { 
-        cardInner.appendChild(cardItem);
-      }    
+      cardInner.appendChild(cardItem);
+      cardInner.appendChild(cardItem);
+      cardInner.appendChild(cardItem);
+      // cardInner.append(cardItem, cardItem, cardItem, cardItem, cardItem,cardItem, cardItem, cardItem, cardItem, cardItem, cardItem, cardItem, cardItem, cardItem, cardItem, cardItem);
+      // console.log(cardInner)
 
     }   
   });
