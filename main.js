@@ -91,6 +91,81 @@ function updateCountdown() {
   timer--
 }
 
+
+const circleTimerContainer = document.createElement('div')
+circleTimerContainer.className = 'timer-container'
+const svgn = 'http://www.w3.org/2000/svg'
+const circleContainer = document.createElementNS(svgn, 'svg')
+circleContainer.setAttribute('class', 'circle-container')
+const circle = document.createElementNS(svgn, 'circle')
+const radius = 90
+circle.setAttribute('r', radius.toString())
+circle.setAttribute('cx', '50%')
+circle.setAttribute('cy', '50%')
+circleContainer.appendChild(circle)
+const initialDashArray = 2 * Math.PI * radius
+circle.style.strokeDasharray = `${initialDashArray}px`
+
+const timer = document.createElement('span')
+let minutes = 10
+let seconds = 0
+timer.className = 'timer'
+timer.innerText = `${minutes.toString().padStart(2, '0')}:${seconds
+  .toString()
+  .padStart(2, '0')}`
+
+circleTimerContainer.appendChild(circleContainer)
+circleTimerContainer.appendChild(timer)
+
+const gameTip = document.createElement('span')
+gameTip.className = 'tip'
+gameTip.innerText = 'Click on finished items and move to the next'
+
+const timerButtonsContainer = document.createElement('div')
+timerButtonsContainer.className = 'timer-buttons-container'
+const pauseButton = document.createElement('button')
+pauseButton.className = 'pause-button'
+const pauseImg = document.createElement('img')
+pauseImg.src = PAUSE_URL
+pauseImg.alt = 'pause'
+const playImg = document.createElement('img')
+playImg.src = PLAY_URL
+playImg.alt = 'play'
+
+pauseButton.appendChild(pauseImg)
+pauseButton.addEventListener('click', (e) => {
+  e.preventDefault()
+  pauseButton.innerHTML = ''
+  pauseButton.appendChild(paused ? pauseImg : playImg)
+  paused = !paused
+})
+
+const resetButton = document.createElement('button')
+resetButton.className = 'reset-button'
+resetButton.innerText = 'Reset'
+resetButton.addEventListener('click', (e) => {
+  e.preventDefault()
+  minutes = 10
+  seconds = 1
+  pauseButton.innerHTML = ''
+  pauseButton.appendChild(pauseImg)
+  paused = false
+
+  Array.from(document.getElementsByClassName('marked')).forEach((el) =>
+    el.classList.remove('marked')
+  )
+})
+timerButtonsContainer.appendChild(pauseButton)
+if (window.mobileCheck()) {
+  timerButtonsContainer.appendChild(timer)
+}
+timerButtonsContainer.appendChild(resetButton)
+
+const timerContainer = document.createElement('div')
+timerContainer.className = 'col'
+timerContainer.appendChild(circleTimerContainer)
+timerContainer.appendChild(timerButtonsContainer)
+
 const chores = [
   'Do the laundry',
   'Take out the trash',
