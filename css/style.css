@@ -217,6 +217,8 @@ button {
   color: var(--Label-Disabled, #cfbbdd);
   border: 1px solid transparent;
   cursor: not-allowed;
+  pointer-events: none;
+  
 }
 
 .grid-layout__button {
@@ -379,6 +381,10 @@ button {
   flex-basis: 100%;
   overflow: hidden;
 }
+.game-started .card__item {
+  pointer-events: auto;  
+
+}
 
 .card-game::after {
   position: absolute;
@@ -403,6 +409,7 @@ button {
   gap: 10px;
 }
 .card__item {
+  pointer-events: none;
   transition: all 0.4s;
   text-align: center;
   display: flex;
@@ -421,6 +428,7 @@ button {
     rgba(253, 253, 253, 0.3);
   backdrop-filter: blur(60px);
 }
+
 .card__item-text {
   font-family: Prompt;
   font-size: 11px;
@@ -433,6 +441,19 @@ button {
 .card__item--active {
   background: var(--white, #fff);
   opacity: 1;
+}
+
+.card__item-checked {
+  display: none;
+  
+}
+
+.checked .card__item-checked {
+  position: absolute;
+  display: block;
+  width: 67px;
+
+  
 }
 
 .card__item--active img {
@@ -505,6 +526,7 @@ button {
   justify-content: center;
   align-items: center;
   gap: 192px;
+  margin-top: -50px;
   margin-bottom: 15px;
 }
 .start-timer__pause {
@@ -685,6 +707,7 @@ circle {
 }
 
 .timer-container {
+  order: -1;
   position: relative;
   display: flex;
   text-align: center;
