@@ -1,15 +1,3 @@
-document.addEventListener('click', (e) => {
-  
-  if (e.target !== gridLayoutButton ) {
-    gridLayoutList.classList.remove('dropup__list--visible')
-
-  }
-  if (e.target !== cellCizeButton ) {
-    cellCizeList.classList.remove('dropup__list--visible')
-
-  }
-
-})
 
 
 window.mobileCheck = function () {
@@ -36,13 +24,18 @@ const gridLayoutList = document.querySelector('.grid-layout__list')
 const gridLayoutItem = document.querySelectorAll('.grid-layout__item')
 const cardInner = document.querySelector('.card__inner')
 const cards = document.querySelectorAll('.card__item')
+
 const pasteSpecialCard = function (i) {   
    const specialP = document.createElement('p')
    specialP.className = 'card__item-special-text'
    const pText = document.createTextNode('free')
    specialP.appendChild(pText) 
+  //  alert('hi')
    cards[i].appendChild(specialP)
-   document.querySelectorAll('.card__item-img')[i].remove()  
+   const specialImg = document.querySelectorAll('.card__item-img')
+   if (!!specialImg[i]) {
+    specialImg[i].remove()
+  }
   
 }
 
@@ -56,10 +49,10 @@ const deleteSpecialCard = function (i) {
   img.className = 'card__item-img'
   img.src = '/images/card-img.png'
   cards[i].appendChild(img)
-  const specialTextCard = document.querySelector('.card__item-special-text')
-  console.log(!!specialTextCard)
-  if (!!specialTextCard) {
-    specialTextCard.remove()
+  const specialTextCards = document.querySelectorAll('.card__item-special-text')
+  console.log(specialTextCards)  
+  if (!!specialTextCards[i]) {
+    specialTextCards[i].remove()
   }
   console.log('works')
   
@@ -79,20 +72,19 @@ gridLayoutItem.forEach((item) => {
     gridLayoutButton.innerHTML = item.innerText
     gridLayoutList.classList.toggle('dropup__list--visible')
     if (item.innerText === '3x3') {
-      pasteSpecialCard(4)
       deleteSpecialCard(12)
+      pasteSpecialCard(4)      
       cardInner.classList.add('card__inner--three')
       cards.forEach((card, index) => {
         if (index > 8) {
-          
           card.remove()          
         }
       })
     } else {
+      // condition below checks that 5x5 is clicked but not auto
       if (cards.length === 9) {
-        cardInner.classList.remove('card__inner--three')
         deleteSpecialCard(4)
-        pasteSpecialCard(12)        
+        cardInner.classList.remove('card__inner--three')      
         for (let i = 0; i < 16; i++) {
           const cardItem = document.createElement('div')
           cardItem.className = 'card__item'
@@ -101,7 +93,10 @@ gridLayoutItem.forEach((item) => {
           cardImg.src = '/images/card-img.png'
           cardItem.appendChild(cardImg)
           cardInner.appendChild(cardItem)
-        }
+        }        
+        
+        pasteSpecialCard(12)  
+        
       }
     }
   })
@@ -135,10 +130,25 @@ cellCizeButton.addEventListener('click', function () {
   cellCizeList.classList.toggle('dropup__list--visible')
 })
 
+document.addEventListener('click', (e) => {
+  
+  if (e.target !== gridLayoutButton ) {
+    gridLayoutList.classList.remove('dropup__list--visible')
+
+  }
+  if (e.target !== cellCizeButton ) {
+    cellCizeList.classList.remove('dropup__list--visible')
+
+  }
+
+})
+
+
 const startIn = document.getElementById('startin')
 let timeIn = 3
 const startTimer = document.querySelector('.start-timer')
 const bingoStartIn = document.querySelector('.bingo-startin')
+
 
 function timeInCount() {
   startIn.innerText = timeIn
