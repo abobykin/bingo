@@ -1,3 +1,17 @@
+document.addEventListener('click', (e) => {
+  
+  if (e.target !== gridLayoutButton ) {
+    gridLayoutList.classList.remove('dropup__list--visible')
+
+  }
+  if (e.target !== cellCizeButton ) {
+    cellCizeList.classList.remove('dropup__list--visible')
+
+  }
+
+})
+
+
 window.mobileCheck = function () {
   const width = window.innerWidth > 0 ? window.innerWidth : screen.width
   return width <= 768
@@ -23,8 +37,10 @@ const gridLayoutItem = document.querySelectorAll('.grid-layout__item')
 const cardInner = document.querySelector('.card__inner')
 const cards = document.querySelectorAll('.card__item')
 
+
 gridLayoutItem.forEach((item) => {
-  item.addEventListener('click', () => {
+  item.addEventListener('click', (e) => {
+    e.stopPropagation();
     const cards = document.querySelectorAll('.card__item')
     gridLayoutButton.innerHTML = item.innerText
     gridLayoutList.classList.toggle('dropup__list--visible')
@@ -63,7 +79,10 @@ const cellSizeItem = document.querySelectorAll('.cell-size__item')
 const cardGame = document.querySelector('.card-game')
 
 cellSizeItem.forEach((item) => {
-  item.addEventListener('click', () => {
+
+  
+  item.addEventListener('click', (e) => {
+    e.stopPropagation();
     cellCizeButton.innerHTML = item.innerText
     cellCizeList.classList.toggle('dropup__list--visible')
     if (item.innerText === 'full screen') {
@@ -97,15 +116,15 @@ function timeInCount() {
 const coundDownEl = document.getElementById('countdown')
 let coundDownTimer = 600
 
-setInterval(updateCountdown, 1000)
+// setInterval(updateCountdown, 1000)
 
-function updateCountdown() {
-  const minutes = Math.floor(coundDownTimer / 60)
-  let seconds = coundDownTimer % 60
-  seconds = seconds < 10 ? '0' + seconds : seconds
-  coundDownEl.innerHTML = `${minutes}: ${seconds} `
-  coundDownTimer--
-}
+// function updateCountdown() {
+//   const minutes = Math.floor(coundDownTimer / 60)
+//   let seconds = coundDownTimer % 60
+//   seconds = seconds < 10 ? '0' + seconds : seconds
+//   coundDownEl.innerHTML = `${minutes}: ${seconds} `
+//   coundDownTimer--
+// }
 
 const circleTimerContainer = document.createElement('div')
 circleTimerContainer.className = 'timer-container'
@@ -200,6 +219,8 @@ const randomChore = chores[Math.floor(Math.random() * chores.length)]
 const buttonGenerate = document.querySelector('.bingo-form__generate')
 const buttonStart = document.querySelector('.bingo-form__start')
 
+
+
 buttonGenerate.addEventListener('click', function () {
   // this is 0 point of plan
   chores.forEach((chore, index) => {
@@ -208,6 +229,8 @@ buttonGenerate.addEventListener('click', function () {
 
     buttonStart.classList.remove('bingo-form__disabled')
     buttonStart.classList.add('bingo-form__active')
+
+
 
     setTimeout(function () {
       const randomCard = cards[Math.floor(Math.random() * cards.length)]
@@ -230,7 +253,19 @@ buttonGenerate.addEventListener('click', function () {
 const form = document.querySelector('.form-card')
 
 buttonStart.addEventListener('click', () => {
+  cardGame.classList.add('game-started')
   bingoStartIn.classList.add('bingo-startin--active')
   form.classList.add('form-card--hiden')
   setInterval(timeInCount, 1000)
+
+  const cardsActive = document.querySelectorAll('.card__item--active')
+
+  cardsActive.forEach((card) => {
+    card.addEventListener('click', () => {
+      card.classList.add('checked')
+
+    })
+  })
+
+
 })
