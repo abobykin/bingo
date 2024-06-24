@@ -438,6 +438,15 @@ button {
   text-transform: uppercase;
   width: 50px;
 }
+
+.card__item-special-text {
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 26px;
+  text-transform: uppercase;
+  color: var(--white, #FFF);
+}
 .card__item--active {
   background: var(--white, #fff);
   opacity: 1;

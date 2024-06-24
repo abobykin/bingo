@@ -36,24 +36,63 @@ const gridLayoutList = document.querySelector('.grid-layout__list')
 const gridLayoutItem = document.querySelectorAll('.grid-layout__item')
 const cardInner = document.querySelector('.card__inner')
 const cards = document.querySelectorAll('.card__item')
+const pasteSpecialCard = function (i) {   
+   const specialP = document.createElement('p')
+   specialP.className = 'card__item-special-text'
+   const pText = document.createTextNode('free')
+   specialP.appendChild(pText) 
+   cards[i].appendChild(specialP)
+   document.querySelectorAll('.card__item-img')[i].remove()  
+  
+}
+
+pasteSpecialCard(12)
+
+
+
+
+const deleteSpecialCard = function (i) {
+  const img = document.createElement('img')
+  img.className = 'card__item-img'
+  img.src = '/images/card-img.png'
+  cards[i].appendChild(img)
+  const specialTextCard = document.querySelector('.card__item-special-text')
+  console.log(!!specialTextCard)
+  if (!!specialTextCard) {
+    specialTextCard.remove()
+  }
+  console.log('works')
+  
+}
+
+
+
+
+
 
 
 gridLayoutItem.forEach((item) => {
+  
   item.addEventListener('click', (e) => {
     e.stopPropagation();
     const cards = document.querySelectorAll('.card__item')
     gridLayoutButton.innerHTML = item.innerText
     gridLayoutList.classList.toggle('dropup__list--visible')
     if (item.innerText === '3x3') {
+      pasteSpecialCard(4)
+      deleteSpecialCard(12)
       cardInner.classList.add('card__inner--three')
       cards.forEach((card, index) => {
         if (index > 8) {
-          card.remove()
+          
+          card.remove()          
         }
       })
     } else {
       if (cards.length === 9) {
         cardInner.classList.remove('card__inner--three')
+        deleteSpecialCard(4)
+        pasteSpecialCard(12)        
         for (let i = 0; i < 16; i++) {
           const cardItem = document.createElement('div')
           cardItem.className = 'card__item'
@@ -79,7 +118,6 @@ const cellSizeItem = document.querySelectorAll('.cell-size__item')
 const cardGame = document.querySelector('.card-game')
 
 cellSizeItem.forEach((item) => {
-
   
   item.addEventListener('click', (e) => {
     e.stopPropagation();
