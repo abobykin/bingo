@@ -1,5 +1,3 @@
-
-
 window.mobileCheck = function () {
   const width = window.innerWidth > 0 ? window.innerWidth : screen.width
   return width <= 768
@@ -25,78 +23,72 @@ const gridLayoutItem = document.querySelectorAll('.grid-layout__item')
 const cardInner = document.querySelector('.card__inner')
 const cards = document.querySelectorAll('.card__item')
 
-const pasteSpecialCard = function (i) {   
-   const specialP = document.createElement('p')
-   specialP.className = 'card__item-special-text'
-   const pText = document.createTextNode('free')
-   specialP.appendChild(pText) 
-  //  alert('hi')
-   cards[i].appendChild(specialP)
-   const specialImg = document.querySelectorAll('.card__item-img')
-   if (!!specialImg[i]) {
+const pasteSpecialCardText = function (i) {
+  const cards = document.querySelectorAll('.card__item')
+  const specialP = document.createElement('p')
+  specialP.className = 'card__item-special-text'
+  const pText = document.createTextNode('free')
+  specialP.appendChild(pText)
+  if (!!cards[i]) {
+    cards[i].appendChild(specialP)
+  }
+  const specialImg = document.querySelectorAll('.card__item-img')
+  if (!!specialImg[i]) {
     specialImg[i].remove()
   }
-  
 }
 
-pasteSpecialCard(12)
-
-
-
-
-const deleteSpecialCard = function (i) {
+const deleteSpecialCardText = function (i) {
+  const cards = document.querySelectorAll('.card__item')
   const img = document.createElement('img')
+  const specialTextCard = document.querySelector('.card__item-special-text')
+
   img.className = 'card__item-img'
   img.src = '/images/card-img.png'
-  cards[i].appendChild(img)
-  const specialTextCards = document.querySelectorAll('.card__item-special-text')
-  console.log(specialTextCards)  
-  if (!!specialTextCards[i]) {
-    specialTextCards[i].remove()
+  if (!!cards[i]) cards[i].appendChild(img)
+  if (!!specialTextCard) {
+    specialTextCard.remove()
   }
-  console.log('works')
-  
 }
 
+const adding16Cards = function () {
+  for (let i = 0; i < 16; i++) {
+    const cardItem = document.createElement('div')
+    const cardImg = document.createElement('img')
 
-
-
-
-
+    cardItem.className = 'card__item'
+    cardImg.className = 'card__item-img'
+    cardImg.src = '/images/card-img.png'
+    cardItem.appendChild(cardImg)
+    cardInner.appendChild(cardItem)
+  }
+  return
+}
 
 gridLayoutItem.forEach((item) => {
-  
   item.addEventListener('click', (e) => {
-    e.stopPropagation();
+    e.stopPropagation()
     const cards = document.querySelectorAll('.card__item')
     gridLayoutButton.innerHTML = item.innerText
     gridLayoutList.classList.toggle('dropup__list--visible')
     if (item.innerText === '3x3') {
-      deleteSpecialCard(12)
-      pasteSpecialCard(4)      
       cardInner.classList.add('card__inner--three')
       cards.forEach((card, index) => {
         if (index > 8) {
-          card.remove()          
+          card.remove()
         }
       })
+      deleteSpecialCardText(12)
+      pasteSpecialCardText(4)
     } else {
       // condition below checks that 5x5 is clicked but not auto
       if (cards.length === 9) {
-        deleteSpecialCard(4)
-        cardInner.classList.remove('card__inner--three')      
-        for (let i = 0; i < 16; i++) {
-          const cardItem = document.createElement('div')
-          cardItem.className = 'card__item'
-          const cardImg = document.createElement('img')
-          cardImg.className = 'card__item-img'
-          cardImg.src = '/images/card-img.png'
-          cardItem.appendChild(cardImg)
-          cardInner.appendChild(cardItem)
-        }        
-        
-        pasteSpecialCard(12)  
-        
+        cardInner.classList.remove('card__inner--three')
+
+        adding16Cards()
+
+        deleteSpecialCardText(4)
+        pasteSpecialCardText(12)
       }
     }
   })
@@ -113,9 +105,8 @@ const cellSizeItem = document.querySelectorAll('.cell-size__item')
 const cardGame = document.querySelector('.card-game')
 
 cellSizeItem.forEach((item) => {
-  
   item.addEventListener('click', (e) => {
-    e.stopPropagation();
+    e.stopPropagation()
     cellCizeButton.innerHTML = item.innerText
     cellCizeList.classList.toggle('dropup__list--visible')
     if (item.innerText === 'full screen') {
@@ -131,24 +122,18 @@ cellCizeButton.addEventListener('click', function () {
 })
 
 document.addEventListener('click', (e) => {
-  
-  if (e.target !== gridLayoutButton ) {
+  if (e.target !== gridLayoutButton) {
     gridLayoutList.classList.remove('dropup__list--visible')
-
   }
-  if (e.target !== cellCizeButton ) {
+  if (e.target !== cellCizeButton) {
     cellCizeList.classList.remove('dropup__list--visible')
-
   }
-
 })
-
 
 const startIn = document.getElementById('startin')
 let timeIn = 3
 const startTimer = document.querySelector('.start-timer')
 const bingoStartIn = document.querySelector('.bingo-startin')
-
 
 function timeInCount() {
   startIn.innerText = timeIn
@@ -267,8 +252,6 @@ const randomChore = chores[Math.floor(Math.random() * chores.length)]
 const buttonGenerate = document.querySelector('.bingo-form__generate')
 const buttonStart = document.querySelector('.bingo-form__start')
 
-
-
 buttonGenerate.addEventListener('click', function () {
   // this is 0 point of plan
   chores.forEach((chore, index) => {
@@ -277,8 +260,6 @@ buttonGenerate.addEventListener('click', function () {
 
     buttonStart.classList.remove('bingo-form__disabled')
     buttonStart.classList.add('bingo-form__active')
-
-
 
     setTimeout(function () {
       const randomCard = cards[Math.floor(Math.random() * cards.length)]
@@ -311,9 +292,6 @@ buttonStart.addEventListener('click', () => {
   cardsActive.forEach((card) => {
     card.addEventListener('click', () => {
       card.classList.add('checked')
-
     })
   })
-
-
 })
