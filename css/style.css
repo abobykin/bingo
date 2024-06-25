@@ -1,3 +1,8 @@
+@font-face {
+	font-family: 'Super Kids'; 
+	src: url(/fonts/Super\ Kids.ttf); 
+}
+
 :root {
   --gray-50: #f4f3f5;
   --label-primary: #4c2e61;
@@ -521,8 +526,9 @@ button {
 }
 .start-timer__text {
   font-size: 18px;
-  font-weight: 700;
+  font-weight: 500;
   line-height: 26px;
+  
 }
 .start-timer__number {
   font-size: 32px;
@@ -799,4 +805,56 @@ circle {
   .bingo-startin__number {
     order: 1;
   }
+}
+
+@media (max-width: 450px) {
+  .bingo-form__title {
+    font-size: 18px;
+  }
+  .bingo-form__subtitle {
+    font-size: 16px;
+  }
+  .bingo-form__button {
+    width: 175px;
+  }
+  .card {
+    padding: 16px;
+  }
+  .bingo-form__button {
+    font-size: 18px;
+  }
+  .column-game__title {
+    font-family: 'Super Kids';
+    font-weight: 700;
+    font-size: 60px;
+    font-style: normal;
+    line-height: 80%; 
+  }
+  .circle-container circle {
+    display: none;
+  }
+  .start-timer__wrapper {
+    display: none;
+  }
+  .timer-container {
+    min-height: 66px;
+  }
+  .start-timer__text {
+
+  }
+}
+
+@media (max-width: 430px) {
+  .bingo-form__button {
+    width: 165px;
+  }
+  .card__item-text {
+    font-size: 9.5px;
+  }
+}
+@media (max-width: 410px) {
+  .bingo-form__button {
+    width: 146px;
+  }
+
 }
