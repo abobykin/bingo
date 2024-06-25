@@ -273,6 +273,7 @@ buttonGenerate.addEventListener('click', function () {
       if (!randomCard.classList.contains('card__item--active')) {
         randomCard.classList.add('card__item--active')
         randomCard.appendChild(para)
+        randomCard.querySelector('.card__item-special-text').classList.add('card__item-special-text--hidden')
       } else {
         return
       }
