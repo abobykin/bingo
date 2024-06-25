@@ -143,6 +143,7 @@ function timeInCount() {
   } else {
     startTimer.classList.add('start-timer--active')
     bingoStartIn.classList.remove('bingo-startin--active')
+    cardGame.classList.add('game-started')
   }
 }
 
@@ -282,7 +283,7 @@ buttonGenerate.addEventListener('click', function () {
 const form = document.querySelector('.form-card')
 
 buttonStart.addEventListener('click', () => {
-  cardGame.classList.add('game-started')
+  
   bingoStartIn.classList.add('bingo-startin--active')
   form.classList.add('form-card--hiden')
   setInterval(timeInCount, 1000)
