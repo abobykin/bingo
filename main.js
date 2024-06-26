@@ -236,8 +236,6 @@ startTimer.appendChild(circleTimerContainer)
 // timerContainer.appendChild(circleTimerContainer)
 // timerContainer.appendChild(timerButtonsContainer)
 
-// startTimer.appendChild(timerContainer) crashing here
-
 const chores = [
   'Do the laundry',
   'Take out the trash',
@@ -273,7 +271,9 @@ buttonGenerate.addEventListener('click', function () {
       if (!randomCard.classList.contains('card__item--active')) {
         randomCard.classList.add('card__item--active')
         randomCard.appendChild(para)
-        randomCard.querySelector('.card__item-special-text').classList.add('card__item-special-text--hidden')
+        randomCard
+          .querySelector('.card__item-special-text')
+          .classList.add('card__item-special-text--hidden')
       } else {
         return
       }
@@ -284,7 +284,6 @@ buttonGenerate.addEventListener('click', function () {
 const form = document.querySelector('.form-card')
 
 buttonStart.addEventListener('click', () => {
-  
   bingoStartIn.classList.add('bingo-startin--active')
   form.classList.add('form-card--hiden')
   setInterval(timeInCount, 1000)
@@ -296,4 +295,13 @@ buttonStart.addEventListener('click', () => {
       card.classList.add('checked')
     })
   })
+
+  // FUNCTION for drawing timer could be here
+
+  function drawingTimer() {
+    const dashOffset = initialDashArray * (1 - (minutes * 60 + seconds) / 600)
+    circle.style.strokeDashoffset = `${dashOffset}px`
+  }
+
+  setInterval(drawingTimer, 1000)
 })
