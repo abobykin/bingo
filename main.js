@@ -131,24 +131,32 @@ document.addEventListener('click', (e) => {
 })
 
 const startIn = document.getElementById('startin')
-let timeIn = 3
+let timeIn = 2
 const startTimer = document.querySelector('.start-timer')
 const bingoStartIn = document.querySelector('.bingo-startin')
 
-function timeInCount() {
-  startIn.innerText = timeIn
 
+function timeInCount() {
+  startIn.innerHTML = timeIn
+  
   if (timeIn != 0) {
     timeIn--
   } else {
     startTimer.classList.add('start-timer--active')
     bingoStartIn.classList.remove('bingo-startin--active')
-    cardGame.classList.add('game-started')
+    cardGame.classList.add('game-started')            
   }
+  
 }
 
-const coundDownEl = document.getElementById('countdown')
-let coundDownTimer = 600
+
+
+
+
+
+
+// const coundDownEl = document.getElementById('countdown')
+// let coundDownTimer = 600
 
 // setInterval(updateCountdown, 1000)
 
@@ -176,7 +184,7 @@ circle.style.strokeDasharray = `${initialDashArray}px`
 
 const timer = document.createElement('span')
 let minutes = 10
-let seconds = 0
+let seconds = 2
 timer.className = 'timer'
 timer.innerText = `${minutes.toString().padStart(2, '0')}:${seconds
   .toString()
@@ -289,6 +297,8 @@ buttonStart.addEventListener('click', () => {
   bingoStartIn.classList.add('bingo-startin--active')
   form.classList.add('form-card--hiden')
   setInterval(timeInCount, 1000)
+  setInterval(timerOfChore, 1000)
+  
 
   const cardsActive = document.querySelectorAll('.card__item--active')
 
@@ -297,6 +307,7 @@ buttonStart.addEventListener('click', () => {
       card.classList.add('checked')
     })
   })
+})
 
   // FUNCTION for drawing timer could be here
 
@@ -305,5 +316,24 @@ buttonStart.addEventListener('click', () => {
     circle.style.strokeDashoffset = `${dashOffset}px`
   }
 
-  setInterval(drawingTimer, 1000)
-})
+  function timerOfChore() {
+    if (seconds > 0) {
+      seconds --
+    } else {
+      seconds = 59   
+      if (minutes > -1) {
+        minutes--
+      } 
+     
+    }
+
+    drawingTimer()
+    const materialTimer = document.querySelector('.timer')
+    materialTimer.innerText = `${minutes}:${seconds}`
+    
+
+  }
+
+
+  
+
