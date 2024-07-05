@@ -153,21 +153,6 @@ function timeInCount() {
 
 
 
-
-
-// const coundDownEl = document.getElementById('countdown')
-// let coundDownTimer = 600
-
-// setInterval(updateCountdown, 1000)
-
-// function updateCountdown() {
-//   const minutes = Math.floor(coundDownTimer / 60)
-//   let seconds = coundDownTimer % 60
-//   seconds = seconds < 10 ? '0' + seconds : seconds
-//   coundDownEl.innerHTML = `${minutes}: ${seconds} `
-//   coundDownTimer--
-// }
-
 const circleTimerContainer = document.createElement('div')
 circleTimerContainer.className = 'timer-container'
 const svgn = 'http://www.w3.org/2000/svg'
@@ -195,54 +180,6 @@ circleTimerContainer.appendChild(timer)
 
 startTimer.appendChild(circleTimerContainer)
 
-// const gameTip = document.createElement('span')
-// gameTip.className = 'tip'
-// gameTip.innerText = 'Click on finished items and move to the next'
-
-// const timerButtonsContainer = document.createElement('div')
-// timerButtonsContainer.className = 'timer-buttons-container'
-// const pauseButton = document.createElement('button')
-// pauseButton.className = 'pause-button'
-// const pauseImg = document.createElement('img')
-// pauseImg.src = PAUSE_URL
-// pauseImg.alt = 'pause'
-// const playImg = document.createElement('img')
-// playImg.src = PLAY_URL
-// playImg.alt = 'play'
-
-// pauseButton.appendChild(pauseImg)
-// pauseButton.addEventListener('click', (e) => {
-//   e.preventDefault()
-//   pauseButton.innerHTML = ''
-//   pauseButton.appendChild(paused ? pauseImg : playImg)
-//   paused = !paused
-// })
-
-// const resetButton = document.createElement('button')
-// resetButton.className = 'reset-button'
-// resetButton.innerText = 'Reset'
-// resetButton.addEventListener('click', (e) => {
-//   e.preventDefault()
-//   minutes = 10
-//   seconds = 1
-//   pauseButton.innerHTML = ''
-//   pauseButton.appendChild(pauseImg)
-//   paused = false
-
-//   Array.from(document.getElementsByClassName('marked')).forEach((el) =>
-//     el.classList.remove('marked')
-//   )
-// })
-// timerButtonsContainer.appendChild(pauseButton)
-// if (window.mobileCheck()) {
-//   timerButtonsContainer.appendChild(timer)
-// }
-// timerButtonsContainer.appendChild(resetButton)
-
-// const timerContainer = document.createElement('div')
-// timerContainer.className = 'col'
-// timerContainer.appendChild(circleTimerContainer)
-// timerContainer.appendChild(timerButtonsContainer)
 
 const chores = [
   'Do the laundry',
@@ -258,15 +195,27 @@ const chores = [
 const randomChore = chores[Math.floor(Math.random() * chores.length)]
 const buttonGenerate = document.querySelector('.bingo-form__generate')
 const buttonStart = document.querySelector('.bingo-form__start')
+const buttonsWrapper = document.querySelector('.buttons__wrapper')
+const buttonChange = document.querySelector('.bingo-form__change')
+const myTextarea = document.getElementById('task')
+
+
+buttonChange.addEventListener('click', function() {
+  
+})
+
+
 
 buttonGenerate.addEventListener('click', function () {
   // this is 0 point of plan
+  buttonGenerate.classList.add('bingo-form__disabled')
+  buttonGenerate.classList.remove('bingo-form__active')
+  buttonsWrapper.classList.add('button__change')
+  myTextarea.value = chores      
+  buttonStart.classList.remove('bingo-form__disabled')
+  buttonStart.classList.add('bingo-form__active-purple')
+  
   chores.forEach((chore, index) => {
-    buttonGenerate.classList.add('bingo-form__disabled')
-    buttonGenerate.classList.remove('bingo-form__active')
-
-    buttonStart.classList.remove('bingo-form__disabled')
-    buttonStart.classList.add('bingo-form__active')
 
     setTimeout(function () {
       const randomCard = cards[Math.floor(Math.random() * cards.length)]
@@ -290,6 +239,8 @@ buttonGenerate.addEventListener('click', function () {
     }, index * 350)
   })
 })
+
+
 
 const form = document.querySelector('.form-card')
 
@@ -329,7 +280,8 @@ buttonStart.addEventListener('click', () => {
 
     drawingTimer()
     const materialTimer = document.querySelector('.timer')
-    materialTimer.innerText = `${minutes}:${seconds}`
+    materialTimer.innerText = `${minutes}:${seconds.toString().length < 2 ? "0" + seconds : seconds}`
+  
     
 
   }

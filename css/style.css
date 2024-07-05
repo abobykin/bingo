@@ -217,6 +217,11 @@ button {
   background: var(--white, #fff);
   cursor: pointer;
 }
+.bingo-form__active-purple {
+  color: #FFF;
+  background-color: #5f3a79;
+  cursor: pointer;
+}
 .bingo-form__disabled {
   background: var(--Surface-Disabled, #b798cd);
   color: var(--Label-Disabled, #cfbbdd);
@@ -225,6 +230,14 @@ button {
   pointer-events: none;
   
 }
+
+.bingo-form__change {
+  display: none;
+}
+
+
+
+
 
 .grid-layout__button {
   color: var(--Label-secondary, #5f3a79);
@@ -809,6 +822,13 @@ circle {
   .bingo-startin__number {
     order: 1;
   }
+  .button__change .bingo-form__generate {
+    display: none;    
+  }
+  .button__change .bingo-form__change {
+    display: block;
+  }
+  
 }
 
 @media (max-width: 450px) {
