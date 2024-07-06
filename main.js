@@ -197,7 +197,7 @@ const buttonGenerate = document.querySelector('.bingo-form__generate')
 const buttonStart = document.querySelector('.bingo-form__start')
 const buttonsWrapper = document.querySelector('.buttons__wrapper')
 const buttonChange = document.querySelector('.bingo-form__change')
-const myTextarea = document.getElementById('task')
+const taskList = document.getElementById('task')
 
 
 buttonChange.addEventListener('click', function() {
@@ -211,7 +211,7 @@ buttonGenerate.addEventListener('click', function () {
   buttonGenerate.classList.add('bingo-form__disabled')
   buttonGenerate.classList.remove('bingo-form__active')
   buttonsWrapper.classList.add('button__change')
-  myTextarea.value = chores      
+  taskList.value = chores.join('\n')      
   buttonStart.classList.remove('bingo-form__disabled')
   buttonStart.classList.add('bingo-form__active-purple')
   
