@@ -197,10 +197,21 @@ const buttonGenerate = document.querySelector('.bingo-form__generate')
 const buttonStart = document.querySelector('.bingo-form__start')
 const buttonsWrapper = document.querySelector('.buttons__wrapper')
 const buttonChange = document.querySelector('.bingo-form__change')
-const taskList = document.getElementById('task')
+const taskListTextarea = document.getElementById('task')
+const fieldset = document.querySelector('.bingo-form__fieldset')
 
 
 buttonChange.addEventListener('click', function() {
+  cardGame.classList.add('card-game--hiden')
+  fieldset.classList.add('fieldset--active')
+  buttonsWrapper.classList.remove('button__change')
+  buttonGenerate.classList.remove('bingo-form__disabled')
+  buttonGenerate.classList.add('bingo-form__active')
+
+
+  
+
+
   
 })
 
@@ -211,9 +222,14 @@ buttonGenerate.addEventListener('click', function () {
   buttonGenerate.classList.add('bingo-form__disabled')
   buttonGenerate.classList.remove('bingo-form__active')
   buttonsWrapper.classList.add('button__change')
-  taskList.value = chores.join('\n')      
+  taskListTextarea.value = chores.join('\n')      
   buttonStart.classList.remove('bingo-form__disabled')
   buttonStart.classList.add('bingo-form__active-purple')
+  if (cardGame.classList.contains('card-game--hiden')) {
+    cardGame.classList.remove('card-game--hiden')
+  }
+  fieldset.classList.remove('fieldset--active')
+
   
   chores.forEach((chore, index) => {
 

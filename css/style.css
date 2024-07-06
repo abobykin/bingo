@@ -506,6 +506,10 @@ button {
   max-width: calc(100% - 50%);
 }
 
+.card-game--hiden {
+  display: none;
+}
+
 .card-game-full .card__inner .card__item {
   width: 100%;
   aspect-ratio: 0;
@@ -816,6 +820,9 @@ circle {
   .bingo-form__fieldset {
     display: none;
   }
+  .fieldset--active {
+    display: block;
+  }
   .bingo-startin__text {
     order: 2;
   }
@@ -828,6 +835,20 @@ circle {
   .button__change .bingo-form__change {
     display: block;
   }
+  .select__subinner--two {
+    display: none;
+
+  }
+  .grid-layout__button {
+    width: 100%;
+  }
+  .select__subinner {
+    width: 100%;
+  }
+  .dropup__list--visible {
+    width: 100%;
+  }
+
   
 }
 
