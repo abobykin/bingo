@@ -567,6 +567,19 @@ button {
 }
 .start-timer__pause {
   cursor: pointer;
+  z-index: 5;
+}
+.start-timer__pause--hiden {
+  display: none;
+}
+.start-timer__play {
+  z-index: 5;
+  display: block;
+  cursor: pointer;
+}
+.start-timer__play--hiden {
+  display: none;
+
 }
 .start-timer__reset {
   padding: 14px 0;
@@ -574,6 +587,7 @@ button {
   font-weight: 500;
   line-height: 20px;
   color: var(--Label-secondary, #5f3a79);
+  z-index: 5;
   cursor: pointer;
 }
 
@@ -879,7 +893,7 @@ circle {
     display: none;
   }
   .start-timer__wrapper {
-    display: none;
+    margin-top: -56px;
   }
   .timer-container {
     min-height: 66px;
