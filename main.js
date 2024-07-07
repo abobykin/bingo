@@ -31,10 +31,12 @@ const pasteSpecialCardText = function (i) {
   specialP.appendChild(pText);
   if (!!cards[i]) {
     cards[i].appendChild(specialP);
+    cards[i].classList.add('card__item--special');
   }
   const specialImg = document.querySelectorAll(".card__item-img");
   if (!!specialImg[i]) {
     specialImg[i].remove();
+    
   }
 };
 
@@ -48,14 +50,14 @@ const deleteSpecialCardText = function (i) {
   if (!!cards[i]) cards[i].appendChild(img);
   if (!!specialTextCard) {
     specialTextCard.remove();
+    cards[i].classList.remove('card__item--special');
   }
 };
 
 const adding16Cards = function () {
   for (let i = 0; i < 16; i++) {
     const cardItem = document.createElement("div");
-    const cardImg = document.createElement("img");
-
+    const cardImg = document.createElement("img");    
     cardItem.className = "card__item";
     cardImg.className = "card__item-img";
     cardImg.src = "/images/card-img.png";
